@@ -107,7 +107,7 @@ WHERE `departments`.`name` = 'dipartimento di matematica';
 SELECT
     `students`.`name`,
     `students`.`surname`,
-    `courses`.`name` AS `Materia`,
+    `courses`.`name` AS `Materia`, // nome della materia 
     COUNT(`exam_student`.`vote`) AS `attempt_exam_num_tot`,
     MAX(`exam_student`.`vote`) AS `max_vote`
 FROM
@@ -117,7 +117,7 @@ JOIN `exams` ON `exams`.`id` = `exam_student`.`exam_id`
 JOIN `courses` ON `courses`.`id` = `exams`.`course_id`
 GROUP BY
     `exam_student`.`student_id`,
-    `courses`.`name`
+    `courses`.`name` // se inserisco il raggruppamento per nome materia ho bisogno di chiamarla anche nella SELECT
 HAVING `max_vote` >= 18;
 
 **************************************************************************************************************************************************************************
