@@ -109,8 +109,7 @@ SELECT
     `students`.`surname`,
     `courses`.`name` AS `Materia`,
     COUNT(`exam_student`.`vote`) AS `attempt_exam_num_tot`,
-    MAX(`exam_student`.`vote`) AS `max_vote`,
-    MIN(`exam_student`.`vote`) AS `min_vote`
+    MAX(`exam_student`.`vote`) AS `max_vote`
 FROM
     `exam_student`
 JOIN `students` ON `students`.`id` = `exam_student`.`student_id`
